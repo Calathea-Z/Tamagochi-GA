@@ -1,0 +1,1 @@
+console.log("Sanity Never Came My Way")
