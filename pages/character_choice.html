@@ -4,17 +4,50 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/style_character_choice.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Monoton&family=Poor+Story&family=Rubik+Bubbles&display=swap" rel="stylesheet">
+    <script src="./scripts/script.js" defer></script>
     <title>Choose Your Character</title>
 </head>
 <body>
     <div class= "header">
-        <h1>Choose your Pupper</h1>
+        <h1>Choose Your Pupper</h1>
+    </div>
+    <div class="allow_music">
+        <button id="allow_music_button" role="button">Allow Music<br>&#119070;</button>
     </div>
     <div class ="numbers">
-        <h1> 1 </h1>
-        <h1> 2 </h1>
-        <h1> 3 </h1>
+        <div>
+            <h1> 1 </h1>
+        </div>    
+        <div>
+            <h1> 2 </h1>
+        </div> 
+        <div>
+            <h1> 3 </h1>
+        </div>       
     </div>
-    <div class =""
+    <div class ="character_choice_buttons">
+        <div class="boxer">
+            <button id="boxer_button" role="button">BOXER</button>
+        </div>
+        <div class="bulldog">
+            <button id="bulldog_button" role="button">BULLDOG</button>
+        </div>
+        <div class="fox_terrier">
+            <button id="fox_terrier_button" role="button">FOX TERRIER</button>
+        </div>    
+    </div>
+    <div class="character_name">
+        <form action="./play_game.html" method="GET">
+        <p>Choose a Name For Your New Bundle Of Joy!</p>
+        <input type="text">
+        </form>
+    </div>
+    <div class="start_button">
+        <button id="start" role="button">START</button>
+    </div>
 </body>
 </html>

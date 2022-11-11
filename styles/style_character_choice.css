@@ -1,0 +1,60 @@
+body {
+    font-family: 'Poor Story', cursive;
+    background-color: rgb(230, 138, 138);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+div {
+    border: solid yellow;
+    margin: 50px;
+}
+
+.header {
+    width: 100%;
+    font-size: 50px;
+    transform: rotate(-6deg);
+    color: rgb(243, 202, 98);
+    text-decoration:underline;
+    text-decoration-color: rgb(196, 249, 231);
+    text-align: center;
+    word-spacing: 80px;
+    margin: 0;
+    margin-top: 20px;
+    padding: 0;
+}
+
+.allow_music, #allow_music_button{
+    align-self: flex-end;
+    border-radius: 100%;
+    font-family: 'Poor Story', cursive;
+    font-weight:900;
+    font-size: 35px;
+    margin: 0;
+    margin-right: 32px;
+    margin-top: -187px;
+}
+
+#allow_music_button {
+    transform: rotate(18deg);
+    background-color: rgb(131, 143, 6);
+    color:rgb(196, 249, 231);
+    width: 150px;
+    height: 150px;
+    margin: 0;
+    border: solid rgb(244, 181, 23);
+    text-shadow:
+    0 0 7px rgb(17, 17, 17);
+    0 0 7px rgb(249, 129, 129);
+    0 0 7px rgb(118, 141, 245);
+    0 0 7px rgb(249, 129, 129);
+    0 0 0px rgb(17, 17, 17);
+    0 0 0px rgb(17, 17, 17);
+}
+
+
+.numbers {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
