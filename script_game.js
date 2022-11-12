@@ -1,14 +1,11 @@
-//grabbing pupper icon
+//Declaring global variables. Grabbing user name and pupper selection from previous screen from local memory.
 characterIcon = document.querySelector('#character-icon').src
 characterIcon.innerText = characterIcon;
-
-
-//Declaring global variables. Grabbing user name and pupper selection from previous screen from local memory.
 let selectedName = localStorage.getItem('selectedName');
 let selectedType = localStorage.getItem('selectedType');
-let count = 0;
+
 //setting up pupper stats.
-const pupper = {
+var pupper = {
     type: "",
     name: "",
     hunger: 0,
@@ -19,17 +16,7 @@ const pupper = {
 pupper.name = selectedName;
 pupper.type = selectedType;
 
-
-function runGame(){
-    setInterval(timer, 1000);
-    chooseCharacterIcon(pupper.type);
-    while (pupper.hunger < 5){
-        setInterval(hungerIncrease, 2000);
-    }
-    console.log("GAME OVER SADDDDDDDDDD");
-    //Play again button??//.hun
-}
-//this function selects the appropriate pupper icon based on user choice from the previous page.
+//Selects the appropriate pupper icon based on user choice from the previous page.
 function chooseCharacterIcon (type){
     if  (type === "The Boxer"){
         document.querySelector('#character-icon').src = "../images/boxer.png"
@@ -40,27 +27,43 @@ function chooseCharacterIcon (type){
     }
     return 
     }
+    chooseCharacterIcon(pupper.type);
+
+//Check if pupper is still alive.
+function isAlive () {
+ if (pupper.boredom >= 10 || pupper.hunger >= 10 || pupper.sleepiness >= 10) {
+    return false}
+    else {
+        return true;
+    };
+ };
+function pupperChange() {
+    hungerIncrease();
+    sleepinessIncrease();
+    boredomIncrease();
+}
+    
 //function to increase the pupper hunger value.
 function hungerIncrease() {
-   console.log(pupper.hunger);
-   pupper.hunger += 1;
-   console.log(pupper.hunger);
+   pupper.hunger += 2;
+   console.log(`HUNGER: ${pupper.hunger}`);
 }
 //function to increase the pupper sleepiness value.
 function sleepinessIncrease() {
-    console.log(pupper.sleepiness);
-    pupper.sleepiness += 2;
-    console.log(pupper.sleepiness);
+    pupper.sleepiness += 1;
+    console.log(`SLEEP: ${pupper.sleepiness}`);
  }
  //function to increase the pupper boredom value.
  function boredomIncrease(){
-    console.log(pupper.boredom);
-    pupper.boredom = (pupper.hunger / pupper.sleepiness) + pupper.boredom;
-    console.log(pupper.boredom)
+    pupper.boredom += 3;
+    console.log(`BOREDOM: ${pupper.boredom}`)
  }
- //function to make a timer
- function timer(){
-    count = count + 1;
-    console.log(count);
- };
-//  runGame();
+var time = setInterval(function(){
+        pupperChange();
+            if(isAlive() === false){
+                alert("GAME OVER");
+                clearInterval(time);
+            return;
+        //take to try again page
+    }
+    }, 1000)

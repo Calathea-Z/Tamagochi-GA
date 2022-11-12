@@ -94,7 +94,7 @@ selectPlayButton.addEventListener('click', function () {
             break;
     }
 }       
-    if (nameChoice.value !== "Nameless"){
+    if (nameChoice.value !== "Gnarls Bark-ley"){
             console.log(nameChoice.value);
             window.localStorage.setItem("selectedName", nameChoice.value);
         }
