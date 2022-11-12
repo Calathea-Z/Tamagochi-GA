@@ -19,8 +19,8 @@ let selectedName = " ";
 
 //pupper one mouse-over effects
 pupperOneHover.addEventListener('mouseenter', function () {
-    this.style.backgroundColor = '#40ff00';
-    this.style.opacity = '.7';
+    this.style.backgroundColor = 'rgb(196, 249, 231)';
+    this.style.opacity = '.9';
     this.style.borderRadius = '10px';
     audioPantOne.play();
 });
@@ -35,8 +35,8 @@ pupperOneHover.addEventListener('mouseleave', function () {
 
 //pupper two mouse-over effects
 pupperTwoHover.addEventListener('mouseenter', function () {
-    this.style.backgroundColor = '#40ff00';
-    this.style.opacity = '.7';
+    this.style.backgroundColor = 'rgb(196, 249, 231)';
+    this.style.opacity = '.9';
     this.style.borderRadius = '10px';
     audioPantTwo.play();
 });
@@ -51,8 +51,8 @@ pupperTwoHover.addEventListener('mouseleave', function () {
 
 //pupper three mouse-over effects
 pupperThreeHover.addEventListener('mouseenter', function () {
-    this.style.backgroundColor = '#40ff00';
-    this.style.opacity = '.7';
+    this.style.backgroundColor = 'rgb(196, 249, 231)';
+    this.style.opacity = '.9';
     this.style.borderRadius = '10px';
     audioPantThree.play();
 });

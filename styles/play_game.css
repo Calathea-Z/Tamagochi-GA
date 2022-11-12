@@ -1,9 +1,49 @@
 body {
     display: flex;
     flex-direction: column;
+    background-color: rgb(242, 231, 204);
 }
 div {
     border: solid limegreen;
     width: 100px;
     height: 100px;
+}
+
+.hud {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.age {
+    display: flex;
+    justify-content: space-between;
+}
+
+.vitals {
+    display: flex;
+    flex-direction: column;
+}
+
+.game-screen {
+    width: 80%;
+    height: 950px;
+    display: flex;
+    margin: 0 auto;
+}
+
+.buttons {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.achievement {
+    display: flex;
+    flex-direction: column;
+}
+
+.quit {
+    display: flex;
+    align-self: flex-end;
 }
