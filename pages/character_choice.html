@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="../script_character.js" defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link rel="stylesheet" href="../styles/style_character_choice.css"/>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,7 +19,7 @@
         <h1>Select Your Pupper</h1>
     </div>
     <div class="allow_music">
-        <button id="allow_music_button" role="button">Allow Music<br>&#119070;</button>
+        <button id="allow_music_button" role="button">Click Me To Allow Sound<br>&#119070;</button>
         <audio class="panting" src="./sounds/dog_panting.wav" type="audio/wav" muted ></audio>
     </div>
     <div class ="character_choice">
@@ -34,14 +35,17 @@
     </div>
     <div class ="character_choice_buttons">
         <div class="boxer">
-            <button id="boxer_button" role="button"> </button>
+            <label for="boxer"><img id="boxer_button" src='../images/boxer.png'></label>
+            <input type="radio" class="radio"  name="dog_character" value="The Boxer">     
         </div>
         <div class="bulldog">
-            <button id="bulldog_button" role="button"> </button>
+            <label for="bulldog"><img id="bulldog_button" src='../images/bulldog.png'></label>
+            <input type="radio" class="radio"  name="dog_character" value="The Bulldog">      
         </div>
         <div class="fox_terrier">
-            <button id="fox_terrier_button" role="button"> </button>
-        </div>    
+            <label for="fox_terrier"><img id="fox_terrier_button"  src='../images/fox_terrier.png'></label>
+            <input type="radio" class="radio" name="dog_character" value="The Fox Terrier">   
+        </div>
     </div>
     <div class="character_name">
         <div class= "name_chooser_1">

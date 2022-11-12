@@ -33,7 +33,7 @@ h1 {
     border-radius: 100%;
     font-family: 'Poor Story', cursive;
     font-weight:900;
-    font-size: 35px;
+    font-size: 25px;
     margin: 0;
     margin-right: 0px;
     margin-top: -150px;
@@ -82,38 +82,36 @@ h1 {
     margin-bottom: 0;
 }
 
+label {
+    width: 400px;
+}
+
 .boxer, .bulldog, .fox_terrier {
     margin-top: 5px;
 }
+.radio {
+    width:20px;
+    height: 50px;
+}
 #boxer_button {
-    background-image: url('../images/boxer.png');
-    background-repeat: no-repeat;
-    background-size: 100%;
     width: 400px;
     height: 400px;
     border-radius: 400px;
-    transform: rotate(0deg);
-
+    transform: rotate(-20deg);
 }
 
 #bulldog_button {
-    background-image: url('../images/bulldog.png');
-    background-repeat: no-repeat;
-    background-size: 115%;
     width: 400px;
     height: 400px;
     border-radius: 400px;
-    transform: rotate(-10deg);
+    transform: rotate(10deg);
 }
 
 #fox_terrier_button {
-    background-image: url('../images/fox_terrier.png');
-    background-repeat: no-repeat;
-    background-size: 100%;
     width: 400px;
     height: 400px;
     border-radius: 400px;
-    transform: rotate(20deg);
+    transform: rotate(-20deg);
 }
 
 .character_name {
