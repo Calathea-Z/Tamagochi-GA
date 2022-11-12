@@ -1,12 +1,12 @@
 //grabbing pupper icon
 characterIcon = document.querySelector('#character-icon').src
 characterIcon.innerText = characterIcon;
-console.log(characterIcon);
 
 
-//Grabbing user name and pupper selection from previous screen from local memory.
+//Declaring global variables. Grabbing user name and pupper selection from previous screen from local memory.
 let selectedName = localStorage.getItem('selectedName');
 let selectedType = localStorage.getItem('selectedType');
+let count = 0;
 //setting up pupper stats.
 const pupper = {
     type: "",
@@ -14,12 +14,21 @@ const pupper = {
     hunger: 0,
     sleepiness: 0,
     boredom: 0,
-    age: 0
+    age: 0,
 }
 pupper.name = selectedName;
 pupper.type = selectedType;
 
 
+function runGame(){
+    setInterval(timer, 1000);
+    chooseCharacterIcon(pupper.type);
+    while (pupper.hunger < 5){
+        setInterval(hungerIncrease, 2000);
+    }
+    console.log("GAME OVER SADDDDDDDDDD");
+    //Play again button??//.hun
+}
 //this function selects the appropriate pupper icon based on user choice from the previous page.
 function chooseCharacterIcon (type){
     if  (type === "The Boxer"){
@@ -31,4 +40,27 @@ function chooseCharacterIcon (type){
     }
     return 
     }
-chooseCharacterIcon(pupper.type);
+//function to increase the pupper hunger value.
+function hungerIncrease() {
+   console.log(pupper.hunger);
+   pupper.hunger += 1;
+   console.log(pupper.hunger);
+}
+//function to increase the pupper sleepiness value.
+function sleepinessIncrease() {
+    console.log(pupper.sleepiness);
+    pupper.sleepiness += 2;
+    console.log(pupper.sleepiness);
+ }
+ //function to increase the pupper boredom value.
+ function boredomIncrease(){
+    console.log(pupper.boredom);
+    pupper.boredom = (pupper.hunger / pupper.sleepiness) + pupper.boredom;
+    console.log(pupper.boredom)
+ }
+ //function to make a timer
+ function timer(){
+    count = count + 1;
+    console.log(count);
+ };
+//  runGame();
