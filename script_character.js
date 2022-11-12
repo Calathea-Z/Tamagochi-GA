@@ -13,8 +13,6 @@ const selectPlayButton = document.querySelector("#start");
 //Grabbing the user's pupper choice & name selection.
 let characterChoice = document.querySelectorAll("input[name=dog-character]");
 let nameChoice = document.querySelector('#name-form')
-let selectedCharacter = " ";
-let selectedName = " ";
 
 
 //pupper one mouse-over effects
@@ -89,16 +87,19 @@ selectPlayButton.addEventListener('mouseleave', function () {
 // Storing user choice for pupper name and icon choice. Sends user to Game Page. 
 selectPlayButton.addEventListener('click', function () {
     audioSuccess.play();
-    setTimeout(changePage, 1000);
-
-    selectedName = nameChoice.value;
-
     for (characterChoice of characterChoice){
         if(characterChoice.checked){
-            selectedCharacter = characterChoice.value;
+            console.log(characterChoice.value);
+            window.localStorage.setItem("selectedType", characterChoice.value);
             break;
-        }
     }
+}       
+    if (nameChoice.value !== "Nameless"){
+            console.log(nameChoice.value);
+            window.localStorage.setItem("selectedName", nameChoice.value);
+        }
+    
+    setTimeout(changePage, 1000);
     function changePage (){
     window.location.href = "./play_game.html";
     }
