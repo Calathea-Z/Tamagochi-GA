@@ -16,7 +16,7 @@ body {
     0 0 100px rgb(17, 17, 17);
 }
 
-.pixel_art {
+.pixel-art {
     height: 20px;
     display: flex;
     flex-direction: column;
@@ -39,7 +39,7 @@ body {
 }
 
 
-#fox_terrier{
+#fox-terrier{
     height: 200px;
     width: 200px;
     border-radius: 100%;
@@ -75,7 +75,7 @@ body {
 h6 {
     margin-bottom: 300px;
 }
-.play_button {
+.play-button {
     display: flex;
     justify-content: center;
     align-items: center;

@@ -1,9 +1,9 @@
-//Grabbing the divs around each pupper.
+//Grabbing the divs around each pupper icon.
 const pupperOneHover = document.querySelector(".boxer");
 const pupperTwoHover = document.querySelector(".bulldog");
-const pupperThreeHover = document.querySelector(".fox_terrier");
+const pupperThreeHover = document.querySelector(".fox-terrier");
 //Grabbing audio permission button & the audio files.
-const selectAudioPermission = document.querySelector("#allow_music_button");
+const selectAudioPermission = document.querySelector("#allow-music-button");
 const audioPantOne = new Audio(src="../sounds/dog_panting.wav");
 const audioPantTwo = new Audio(src="../sounds/squish_breathing.wav");
 const audioPantThree = new Audio(src="../sounds/happy_pant.wav");
@@ -11,8 +11,8 @@ const audioSuccess = new Audio(src="../sounds/success.wav");
 //Grabbing the start button.
 const selectPlayButton = document.querySelector("#start");
 //Grabbing the user's pupper choice & name selection.
-let characterChoice = document.querySelectorAll('input[name="dog_character');
-let nameChoice = document.querySelector('#name_form')
+let characterChoice = document.querySelectorAll("input[name=dog-character]");
+let nameChoice = document.querySelector('#name-form')
 let selectedCharacter = " ";
 let selectedName = " ";
 
@@ -85,6 +85,8 @@ selectPlayButton.addEventListener('mouseenter', function () {
 selectPlayButton.addEventListener('mouseleave', function () {
     this.style.backgroundColor = '';
 });
+
+// Storing user choice for pupper name and icon choice. Sends user to Game Page. 
 selectPlayButton.addEventListener('click', function () {
     audioSuccess.play();
     setTimeout(changePage, 1000);
@@ -97,7 +99,6 @@ selectPlayButton.addEventListener('click', function () {
             break;
         }
     }
-
     function changePage (){
     window.location.href = "./play_game.html";
     }
