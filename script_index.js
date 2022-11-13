@@ -15,13 +15,3 @@ titlePageButton.addEventListener('mouseleave', function () {
 titlePageButton.addEventListener('click', () => {
     window.location.href = "./pages/character_choice.html";
 });
-
-// titlePageButton.addEventListener('mouseenter', () => {
-//     playClip();
-// });
-
-// function playClip () {
-//     let soundClip = document.querySelector(".panting");
-//     console.log(soundClip);
-//     soundClip.play();
-// }
