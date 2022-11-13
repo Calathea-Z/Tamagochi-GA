@@ -1,21 +1,23 @@
 //Declaring global variables. Grabbing user name and pupper selection from previous screen from local memory.
-characterIcon = document.querySelector('#character-icon').src
+let characterIcon = document.querySelector('#character-icon').src
 characterIcon.innerText = characterIcon;
 let selectedName = localStorage.getItem('selectedName');
 let selectedType = localStorage.getItem('selectedType');
+let chosenName = document.querySelector('.age-one').children[0];
+let highScore = 0;
 //Grabbing user action buttons.
-feedButton = document.querySelector('#feed');
-playButton = document.querySelector('#play');
-lightsButton = document.querySelector('#lights');
-quitButton = document.querySelector('#quit');
-muteButton = document.querySelector('#mute');
+const feedButton = document.querySelector('#feed');
+const playButton = document.querySelector('#play');
+const lightsButton = document.querySelector('#lights');
+const quitButton = document.querySelector('#quit');
+const muteButton = document.querySelector('#mute');
+const playAgainButton = document.querySelector('#again');
 //Grabbing UI sections to update stats and score. 
-ageScore = document.querySelector('.age-two');
-boredomScore = document.querySelector('.boredom');
-sleepinessScore = document.querySelector('.sleepiness');
-hungerScore = document.querySelector('.hunger');
-
-
+let ageScore = document.querySelector('.age-two').children[0];
+let boredomScore = document.querySelector('.boredom').children[0];
+let sleepinessScore = document.querySelector('.sleepiness').children[0];
+let hungerScore = document.querySelector('.hunger').children[0];
+let highScoreString = document.querySelector('.achievement').children[0];
 
 
 //setting up pupper stats.
@@ -32,6 +34,7 @@ pupper.type = selectedType;
 
 //Selects the appropriate pupper icon based on user choice from the previous page.
 function chooseCharacterIcon (type){
+    chosenName.innerText = (`Name: ${selectedName}`);
     if  (type === "The Boxer"){
         document.querySelector('#character-icon').src = "../images/boxer.png"
     }else if (type === "The Bulldog"){
@@ -45,7 +48,7 @@ function chooseCharacterIcon (type){
 
 //Check if pupper is still alive.
 function isAlive () {
- if (pupper.boredom >= 10 || pupper.hunger >= 10 || pupper.sleepiness >= 10) {
+ if (pupper.boredom >= 20 || pupper.hunger >= 20 || pupper.sleepiness >= 20) {
     return false}
     else {
         return true;
@@ -55,31 +58,40 @@ function pupperChange() {
     hungerIncrease();
     sleepinessIncrease();
     boredomIncrease();
+    ageIncrease();
     updateScores ();
 }
     
-//Increases the pupper hunger value.
+//Increases the pupper hunger value by a random value between 0 and 2 each interval.
 function hungerIncrease() {
-   pupper.hunger += 2;
+   let randomInt = Math.floor((Math.random() * 3));
+   console.log(randomInt);
+   pupper.hunger += randomInt;
    console.log(`HUNGER: ${pupper.hunger}`);
 }
-//Increases the pupper sleepiness value.
+//Increases the pupper sleepiness value by 1 each interval. 
 function sleepinessIncrease() {
     pupper.sleepiness += 1;
     console.log(`SLEEP: ${pupper.sleepiness}`);
  }
- //Increases the pupper boredom value.
+ //Increases the pupper boredom value by a random value between 0 and 4 each interval. 
  function boredomIncrease(){
-    pupper.boredom += 3;
+    let randomInt = Math.floor((Math.random() * 5));
+    pupper.boredom += randomInt;
     console.log(`BOREDOM: ${pupper.boredom}`)
+ }
+
+ function ageIncrease() {
+    pupper.age += 7
+    console.log(`AGE: ${pupper.age}`)
  }
 
  //Updates the scores
  function updateScores() {
- ageScore.text = `${pupper.age}` 
-boredomScore.text  = `${pupper.boredom}`
-sleepinessScore.text = `${pupper.sleepiness}`
-hungerScore.text = `${pupper.hunger}`
+ ageScore.innerText = `AGE: ${pupper.age}` 
+boredomScore.innerText  = `BOREDOM: ${pupper.boredom}`
+sleepinessScore.innerText = `SLEEPINESS: ${pupper.sleepiness}`
+hungerScore.innerText = `HUNGER: ${pupper.hunger}`
  }
 
  //Runs game loop
@@ -88,6 +100,11 @@ var time = setInterval(function(){
             if(isAlive() === false){
                 console.log("GAME OVER");
                 clearInterval(time);
+                if(highScore < pupper.age){
+                    highScore = pupper.age
+                    console.log(`FINAL: ${pupper.age}`);
+                    highScoreString.innerText = `HIGH SCORE: ${highScore} DOG YEARS`
+                }
             return;
         //take to try again page
     }

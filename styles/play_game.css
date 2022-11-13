@@ -1,11 +1,11 @@
 body {
     display: flex;
     flex-direction: column;
-    background-color: rgb(242, 231, 204);
+    background-color: rgb(240, 181, 32);
     font-family: 'Poor Story', cursive;
 }
 div {
-    border: solid limegreen;
+    //border: solid limegreen;
     width: 100px;
     height: 100px;
 }
@@ -14,6 +14,21 @@ div {
     display: flex;
     width: 100%;
     justify-content: space-between;
+}
+
+.logo {
+    font-family: 'Rubik Bubbles', cursive;
+    font-size: 20px;
+    transform: rotate(-30deg);
+    box-shadow:
+    inset 0 0 50px #fff,      
+    inset 20px 0 80px #f0f,   
+    inset -20px 0 80px #0ff,  
+    inset 20px 0 300px #f0f,  
+    inset -20px 0 300px #0ff, 
+    0 0 50px #fff,            
+    -10px 0 80px #f0f,        
+    10px 0 80px #0ff;
 }
 
 .age {
@@ -26,18 +41,28 @@ div {
     flex-direction: column;
 }
 
-.game-screen {
-    width: 80%;
+.game-screen{
+    width: 88%;
     height: 950px;
     display: flex;
     margin: 0 auto;
+    border: 5px solid black;
+    outline: none;
+    border-color: #9ecaed;
+    box-shadow: 0 0 10px #6d6f03;
 }
 
 #character-icon {
     width: 300px;
     height: 300px;
     border-radius: 80px;
+}
 
+.game-screen {
+    background-image: url("../images/forest.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 
 .buttons {
