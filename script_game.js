@@ -80,15 +80,15 @@ function sleepinessIncrease() {
     pupper.boredom += randomInt;
     console.log(`BOREDOM: ${pupper.boredom}`)
  }
-
+//Increase the pupper's age by 7 dog years (1 human year) each interval.
  function ageIncrease() {
     pupper.age += 7
-    console.log(`AGE: ${pupper.age}`)
+    console.log(`AGE: ${pupper.age} DOG YEARS`)
  }
 
  //Updates the scores
  function updateScores() {
- ageScore.innerText = `AGE: ${pupper.age}` 
+ ageScore.innerText = `AGE: ${pupper.age} DOG YEARS` 
 boredomScore.innerText  = `BOREDOM: ${pupper.boredom}`
 sleepinessScore.innerText = `SLEEPINESS: ${pupper.sleepiness}`
 hungerScore.innerText = `HUNGER: ${pupper.hunger}`
