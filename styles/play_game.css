@@ -27,13 +27,12 @@ div {
 
 .logo {
     font-family: 'Rubik Bubbles', cursive;
-    color: rgb(196, 249, 231);
+    color: rgb(0, 255, 238);
     font-size: 20px;
-    transform: rotate(-14deg);
+    transform: rotate(-16deg);
     margin-top: -6px;
     margin-left: 4px;
-    text-shadow: 2px 0 rgb(202, 107, 252), -2px 0 rgb(202, 107, 252), 0 2px rgb(202, 107, 252), 0 -2px rgb(202, 107, 252),
-    1px 1px rgb(202, 107, 252), -1px -1px rgb(202, 107, 252), 1px -1px rgb(202, 107, 252), -1px 1px rgb(202, 107, 252);
+    text-shadow: 2px 0 rgb(202, 107, 252), -2px 0 rgb(202, 107, 252), 0 2px rgb(202, 107, 252), 0 -2px rgb(202, 107, 252), 1px 1px rgb(202, 107, 252), -1px -1px rgb(202, 107, 252), 1px -1px rgb(202, 107, 252), -1px 1px rgb(202, 107, 252);
 }
 
 .age {
@@ -43,8 +42,7 @@ div {
     font-size: 16px;
     text-align: center;
     color: rgb(0, 16, 11);
-    text-shadow: 2px 0 rgb(236, 249, 0), -2px 0 rgb(236, 249, 0), 0 2px rgb(236, 249, 0), 0 -2px rgb(236, 249, 0),
-    1px 1px rgb(236, 249, 0), -1px -1px rgb(236, 249, 0), 1px -1px rgb(236, 249, 0), -1px 1px rgb(236, 249, 0);
+    text-shadow: 2px 0 rgb(236, 249, 0), -2px 0 rgb(236, 249, 0), 0 2px rgb(236, 249, 0), 0 -2px rgb(236, 249, 0), 1px 1px rgb(236, 249, 0), -1px -1px rgb(236, 249, 0), 1px -1px rgb(236, 249, 0), -1px 1px rgb(236, 249, 0);
 }
 
 .age-one{
@@ -74,8 +72,7 @@ div {
     font-size: 15px;
     text-align: center;
     color: rgb(8, 8, 8);
-    text-shadow: 2px 0 rgb(236, 249, 0), -2px 0 rgb(236, 249, 0), 0 2px rgb(236, 249, 0), 0 -2px rgb(236, 249, 0),
-    1px 1px rgb(236, 249, 0), -1px -1px rgb(236, 249, 0), 1px -1px rgb(236, 249, 0), -1px 1px rgb(236, 249, 0);
+    text-shadow: 2px 0 rgb(236, 249, 0), -2px 0 rgb(236, 249, 0), 0 2px rgb(236, 249, 0), 0 -2px rgb(236, 249, 0), 1px 1px rgb(236, 249, 0), -1px -1px rgb(236, 249, 0), 1px -1px rgb(236, 249, 0), -1px 1px rgb(236, 249, 0);
 }
 
 .game-screen{
@@ -149,31 +146,49 @@ div {
 .buttons {
     display: flex;
     width: 100%;
-    justify-content: space-around;
+    justify-content: space-evenly;
     font-family: 'Poor Story', cursive;
+    text-shadow: 2px 0 rgb(50, 243, 246), -2px 0 rgb(50, 243, 246), 0 2px rgb(50, 243, 246), 0 -2px rgb(50, 243, 246), 1px 1px rgb(50, 243, 246), -1px -1px rgb(50, 243, 246), 1px -1px rgb(50, 243, 246), -1px 1px rgb(50, 243, 246);
 }
+
 button:hover{
-    color: rgb(13, 171, 10);
+    color: rgb(255, 3, 3);
     box-shadow: 5px 5px 400px rgba(10, 223, 202, 0.4);  
 }
 
-.achievement {
-    display: flex;
-    flex-direction: column;
+#lights, #feed, #mute, #quit, #again {
+    font-size: 25px;
+    background-color: rgba(10, 223, 202, 0.4);  
+    margin-top: 10px;
+    border-radius: 20px;
+    width: 165px;
+    height: 200px;
+    font-family: 'Poor Story', cursive;
+    text-shadow: 2px 0 rgb(4, 249, 0), -2px 0 rgb(4, 249, 0), 0 2px rgb(4, 249, 0), 0 -2px rgb(4, 249, 0), 1px 1px rgb(4, 249, 0), -1px -1px rgb(4, 249, 0), 1px -1px rgb(4, 249, 0), -1px 1px rgb(4, 249, 0);
 }
 
-.options {
-    display: flex;
-    align-self: flex-end;
-    gap: 20px;
+#mute, #quit{
+    text-shadow: 2px 0 rgb(249, 79, 0), -2px 0 rgb(249, 79, 0), 0 2px rgb(249, 79, 0), 0 -2px rgb(249, 79, 0), 1px 1px rgb(249, 79, 0), -1px -1px rgb(249, 79, 0), 1px -1px rgb(249, 79, 0), -1px 1px rgb(249, 79, 0);
 }
 
+#quit, #again{
+    font-size: 40px;
+}
 .instructions p{
+    font-family: 'Sono', sans-serif;
     display:flex;
     gap: 0px;
     width: 200px;
     height: 200px;
-    font-size: 25px;
-
+    font-size: 20px;
 }
+
+.achievement h2{
+    font-family: 'Sono', sans-serif;
+    margin-top: 10px;
+    padding-left: 45px;
+    font-size: 35px;
+    text-shadow: 2px 0 rgb(246, 4, 194), -2px 0 rgb(246, 4, 194), 0 2px rgb(246, 4, 194), 0 -2px rgb(246, 4, 194), 1px 1px rgb(246, 4, 194), -1px -1px rgb(246, 4, 194), 1px -1px rgb(246, 4, 194), -1px 1px rgb(246, 4, 194);
+}
+
 

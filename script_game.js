@@ -7,6 +7,9 @@ let selectedType = localStorage.getItem('selectedType');
 let highScore = 0;
 let chosenName = document.querySelector('.age-one').children[0];
 let quit = false;
+//Grabbing Sounds
+const clickSound = new Audio(src="../sounds/mouse_click.wav");
+const quitSound = new Audio(src="../sounds/quit_game.wav");
 //Grabbing user action buttons.
 const feedButton = document.querySelector('#feed');
 const playButton = document.querySelector('#play');
@@ -73,6 +76,7 @@ function hungerIncrease() {
    pupper.hunger += randomInt;
    console.log(`HUNGER: ${pupper.hunger}`);
 }
+
 //Increases the pupper sleepiness value by 1 each interval. 
 function sleepinessIncrease() {
     pupper.sleepiness += 1;
@@ -99,15 +103,19 @@ function updateScores() {
  }
  //Houses all button functions
 function buttonClicks() {
-//Button for user to feed the pupper.
+
+//Keypress for user to feed the pupper.
  feedButton.addEventListener('click', () => {
+        clickSound.play();
         if(pupper.hunger >= 1){
             pupper.hunger -=1;
             console.log(`FEED BUTTON WORKS: ${pupper.hunger}`);
             }
- });
+        
+});
 //Button for user to play with pupper.
 characterIconAnimation.addEventListener('click', () => {
+        clickSound.play();
         if(pupper.boredom >= 1){
             pupper.boredom -=1;
             console.log(`PLAY BUTTON WORKS: ${pupper.boredom}`);
@@ -115,6 +123,7 @@ characterIconAnimation.addEventListener('click', () => {
  });
  //Button for user to turn off the lights.
  lightsButton.addEventListener('click', () => {
+        clickSound.play();
         if(pupper.sleepiness >= 6){
             gameScreen.style.backgroundImage = 'url("../images/night_time.png")';
             gameScreen.style.border = 'solid black 10px';
@@ -130,17 +139,20 @@ characterIconAnimation.addEventListener('click', () => {
  });
 //Button so user can mute the music. 
  muteButton.addEventListener('click', () => {
+    clickSound.play();
     let sound = document.querySelector('#theme');
     sound.muted = !sound.muted;
  });
 //Button so user can quit game.
 quitButton.addEventListener('click', () => {
+    quitSound.play();
     quit = true;
     let sound = document.querySelector('#theme');
     sound.muted = !sound.muted;
 });
 //button so user can play again
 playAgainButton.addEventListener('click', () => {
+    clickSound.play();
     quit = false;
     characterIconAnimation.style.animationPlayState = "running";
     pupper.boredom = 0
