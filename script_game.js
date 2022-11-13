@@ -3,8 +3,9 @@ let characterIcon = document.querySelector('#character-icon').src
 characterIcon.innerText = characterIcon;
 let selectedName = localStorage.getItem('selectedName');
 let selectedType = localStorage.getItem('selectedType');
-let chosenName = document.querySelector('.age-one').children[0];
 let highScore = 0;
+let chosenName = document.querySelector('.age-one').children[0];
+let quit = false;
 //Grabbing user action buttons.
 const feedButton = document.querySelector('#feed');
 const playButton = document.querySelector('#play');
@@ -19,6 +20,7 @@ let boredomScore = document.querySelector('.boredom').children[0];
 let sleepinessScore = document.querySelector('.sleepiness').children[0];
 let hungerScore = document.querySelector('.hunger').children[0];
 let highScoreString = document.querySelector('.achievement').children[0];
+    highScoreString.innerText = `HIGH SCORE: ${highScore} DOG YEARS`
 
 //setting up pupper stats.
 var pupper = {
@@ -44,12 +46,11 @@ function chooseCharacterIcon (type){
             }
             return 
     }
-
 chooseCharacterIcon(pupper.type);
 
 //Check if pupper is still alive.
 function isAlive () {
- if (pupper.boredom >= 20 || pupper.hunger >= 20 || pupper.sleepiness >= 20) {
+ if (pupper.boredom >= 20 || pupper.hunger >= 20 || pupper.sleepiness >= 20 || quit === true) {
     return false}
     else {
         return true;
@@ -95,21 +96,23 @@ function updateScores() {
     sleepinessScore.innerText = `SLEEPINESS: ${pupper.sleepiness}`
     hungerScore.innerText = `HUNGER: ${pupper.hunger}`
  }
+ //Houses all button functions
 function buttonClicks() {
+//Button for user to feed the pupper.
  feedButton.addEventListener('click', () => {
         if(pupper.hunger >= 1){
             pupper.hunger -=1;
             console.log(`FEED BUTTON WORKS: ${pupper.hunger}`);
             }
  });
-
+//Button for user to play with pupper.
  playButton.addEventListener('click', () => {
         if(pupper.boredom >= 1){
             pupper.boredom -=1;
             console.log(`PLAY BUTTON WORKS: ${pupper.boredom}`);
             }
  });
- 
+ //Button for user to turn off the lights.
  lightsButton.addEventListener('click', () => {
         if(pupper.sleepiness >= 6){
             gameScreen.style.backgroundImage = 'url("../images/night_time.png")';
@@ -121,26 +124,46 @@ function buttonClicks() {
             gameScreen.style.border = '';
             gameScreen.style.opacity = '';
             }, 5000);
-            console.log(`YOU LET THE PUPPER SLEEP: ${pupper.sleepiness}`)
+            console.log(`LIGHT BUTTON WORKS: ${pupper.sleepiness}`)
         }
  });
+//Button so user can mute the music. 
+ muteButton.addEventListener('click', () => {
+    let sound = document.querySelector('#theme');
+    sound.muted = !sound.muted;
+ });
+//Button so user can quit game.
+quitButton.addEventListener('click', () => {
+    quit = true;
+    let sound = document.querySelector('#theme');
+    sound.muted = !sound.muted;
+});
+//button so user can play again
+playAgainButton.addEventListener('click', () => {
+    quit = false;
+    pupper.boredom = 0
+    pupper.sleepiness = 0;
+    pupper.hunger = 0;
+    console.log(pupper);
+    gameLoop();
+});
 }
 
-
  //Runs game loop
-var time = setInterval(function(){
+ function gameLoop () {
+   let time = setInterval(function(){
     pupperChange();
-        if(isAlive() === false){
-            console.log("GAME OVER");
-            console.log(pupper);
-            clearInterval(time);
-                if(highScore < pupper.age){
-                    highScore = pupper.age
-                    console.log(`FINAL: ${pupper.age}`);
-                    highScoreString.innerText = `HIGH SCORE: ${highScore} DOG YEARS`
-                }
+            if(isAlive() === false){
+                console.log("GAME OVER");
+                clearInterval(time);
+                    if(highScore < pupper.age){
+                      highScore = pupper.age
+                      console.log(`FINAL: ${pupper.age}`);
+                      highScoreString.innerText = `HIGH SCORE: ${highScore} DOG YEARS`
+                     }   
             return;
-        //take to try again page
-    }}, 3000);
-                    
+            }
 
+    }, 3000);
+}
+gameLoop();
