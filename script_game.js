@@ -1,5 +1,6 @@
 //Declaring global variables. Grabbing user name and pupper selection from previous screen from local memory.
-let characterIcon = document.querySelector('#character-icon').src
+let characterIcon = document.querySelector('#character-icon').src;
+let characterIconAnimation = document.querySelector('#character-icon');
 characterIcon.innerText = characterIcon;
 let selectedName = localStorage.getItem('selectedName');
 let selectedType = localStorage.getItem('selectedType');
@@ -106,7 +107,7 @@ function buttonClicks() {
             }
  });
 //Button for user to play with pupper.
- playButton.addEventListener('click', () => {
+characterIconAnimation.addEventListener('click', () => {
         if(pupper.boredom >= 1){
             pupper.boredom -=1;
             console.log(`PLAY BUTTON WORKS: ${pupper.boredom}`);
@@ -141,6 +142,7 @@ quitButton.addEventListener('click', () => {
 //button so user can play again
 playAgainButton.addEventListener('click', () => {
     quit = false;
+    characterIconAnimation.style.animationPlayState = "running";
     pupper.boredom = 0
     pupper.sleepiness = 0;
     pupper.hunger = 0;
@@ -154,6 +156,8 @@ playAgainButton.addEventListener('click', () => {
    let time = setInterval(function(){
     pupperChange();
             if(isAlive() === false){
+                characterIconAnimation.style.animationPlayState = "paused";
+
                 console.log("GAME OVER");
                 clearInterval(time);
                     if(highScore < pupper.age){
