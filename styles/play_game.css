@@ -3,6 +3,8 @@ body {
     flex-direction: column;
     background-color: rgb(240, 181, 32);
     font-family: 'Poor Story', cursive;
+    border: solid #9ecaed 5px;
+    margin: 0px;
 }
 div {
     //border: solid limegreen;
@@ -50,6 +52,10 @@ div {
     outline: none;
     border-color: #9ecaed;
     box-shadow: 0 0 10px #6d6f03;
+    background-image: url("../images/forest.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 
 #character-icon {
@@ -58,17 +64,15 @@ div {
     border-radius: 80px;
 }
 
-.game-screen {
-    background-image: url("../images/forest.jpg");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-}
-
 .buttons {
     display: flex;
     width: 100%;
     justify-content: space-around;
+    font-family: 'Poor Story', cursive;
+}
+button:hover{
+    color: rgb(220, 40, 40);
+    box-shadow: 0 5px 15px rgba(132, 39, 198, 0.4);  
 }
 
 .achievement {
@@ -80,5 +84,5 @@ div {
     display: flex;
     align-self: flex-end;
     gap: 20px;
-    margin-right: 40px;
+    margin-right: 200px;
 }
