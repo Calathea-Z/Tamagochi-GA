@@ -152,7 +152,14 @@ quitButton.addEventListener('click', () => {
 });
 //button so user can play again
 playAgainButton.addEventListener('click', () => {
+    let sound= document.querySelector('#theme');
+
     clickSound.play();
+
+        if (sound.muted === true){
+            sound.muted = !sound.muted
+        }
+        
     quit = false;
     gameScreen.style.backgroundImage = 'url("../images/forest.jpg")';
     pupper.age = 0;
@@ -160,6 +167,7 @@ playAgainButton.addEventListener('click', () => {
     pupper.sleepiness = 0;
     pupper.hunger = 0;
     updateScores();
+
     characterIconAnimation.style.animationPlayState = "running";
     setTimeout(gameLoop, 500);
 });
