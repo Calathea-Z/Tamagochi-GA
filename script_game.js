@@ -105,7 +105,7 @@ function buttonClicks() {
 //Keypress for user to feed the pupper.
  feedButton.addEventListener('click', () => {
         clickSound.play();
-        if(pupper.hunger >= 1){
+        if(pupper.hunger >= 1 && isAlive() === true){
             pupper.hunger -=1;
             hungerScore.innerText = `HUNGER: ${pupper.hunger}`
             }
@@ -114,7 +114,7 @@ function buttonClicks() {
 //Button for user to play with pupper.
 characterIconAnimation.addEventListener('click', () => {
         clickSound.play();
-        if(pupper.boredom >= 1){
+        if(pupper.boredom >= 1 && isAlive() ===true){
             pupper.boredom -=1;
             boredomScore.innerText  = `BOREDOM: ${pupper.boredom}`
             }
@@ -122,11 +122,11 @@ characterIconAnimation.addEventListener('click', () => {
  //Button for user to turn off the lights.
  lightsButton.addEventListener('click', () => {
         clickSound.play();
-        if(pupper.sleepiness >= 6){
+        if(pupper.sleepiness >= 6 && isAlive() === true){
             gameScreen.style.backgroundImage = 'url("../images/night_time.png")';
             gameScreen.style.border = 'solid black 10px';
             gameScreen.style.opacity = '.8';
-            pupper.sleepiness = Math.floor(pupper.sleepiness / 3);
+            pupper.sleepiness = 0;
             sleepinessScore.innerText = `SLEEPINESS: ${pupper.sleepiness}`;
             setTimeout(function (){
             gameScreen.style.backgroundImage = '';
@@ -154,12 +154,14 @@ quitButton.addEventListener('click', () => {
 playAgainButton.addEventListener('click', () => {
     clickSound.play();
     quit = false;
-    characterIconAnimation.style.animationPlayState = "running";
+    gameScreen.style.backgroundImage = 'url("../images/forest.jpg")';
+    pupper.age = 0;
     pupper.boredom = 0
     pupper.sleepiness = 0;
     pupper.hunger = 0;
-    setTimeout(gameLoop, 10000);
-    // gameLoop();
+    updateScores();
+    characterIconAnimation.style.animationPlayState = "running";
+    setTimeout(gameLoop, 500);
 });
 }
 
@@ -168,12 +170,13 @@ playAgainButton.addEventListener('click', () => {
    let time = setInterval(function(){
     pupperChange();
             if(isAlive() === false){
+                gameScreen.style.backgroundImage = 'url("../images/game_over.jpg")';
+                if(highScore < pupper.age){
+                    highScore = pupper.age
+                    highScoreString.innerText = `HIGH SCORE: ${highScore} DOG YEARS`
+                  }
                 characterIconAnimation.style.animationPlayState = "paused";
-                clearInterval(time);
-                    if(highScore < pupper.age){
-                      highScore = pupper.age / 7;
-                      highScoreString.innerText = `HIGH SCORE: ${highScore} HUMAN YEARS`
-                     }   
+                     clearInterval(time);
             return;
             }
 
