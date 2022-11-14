@@ -54,7 +54,7 @@ chooseCharacterIcon(pupper.type);
 
 //Check if pupper is still alive.
 function isAlive () {
- if (pupper.boredom >= 20 || pupper.hunger >= 20 || pupper.sleepiness >= 20 || quit === true) {
+ if (pupper.boredom >= 10 || pupper.hunger >= 10 || pupper.sleepiness >= 10 || quit === true) {
     return false}
     else {
         return true;
@@ -72,26 +72,25 @@ buttonClicks();
 //Increases the pupper hunger value by a random value between 0 and 2 each interval.
 function hungerIncrease() {
    let randomInt = Math.floor((Math.random() * 3));
-   console.log(randomInt);
    pupper.hunger += randomInt;
-   console.log(`HUNGER: ${pupper.hunger}`);
+   hungerScore.innerText = `HUNGER: ${pupper.hunger}`
 }
 
 //Increases the pupper sleepiness value by 1 each interval. 
 function sleepinessIncrease() {
     pupper.sleepiness += 1;
-    console.log(`SLEEP: ${pupper.sleepiness}`);
+    sleepinessScore.innerText = `SLEEPINESS: ${pupper.sleepiness}`
  }
  //Increases the pupper boredom value by a random value between 0 and 4 each interval. 
  function boredomIncrease(){
     let randomInt = Math.floor((Math.random() * 5));
     pupper.boredom += randomInt;
-    console.log(`BOREDOM: ${pupper.boredom}`)
+    boredomScore.innerText  = `BOREDOM: ${pupper.boredom}`
  }
 //Increases the pupper age by 7 dog years (1 human year) each interval.
 function ageIncrease() {
     pupper.age += 7
-    console.log(`AGE: ${pupper.age} DOG YEARS`)
+    ageScore.innerText = `AGE: ${pupper.age} DOG YEARS` 
  }
 
  //Updates the scores
@@ -103,13 +102,12 @@ function updateScores() {
  }
  //Houses all button functions
 function buttonClicks() {
-
 //Keypress for user to feed the pupper.
  feedButton.addEventListener('click', () => {
         clickSound.play();
         if(pupper.hunger >= 1){
             pupper.hunger -=1;
-            console.log(`FEED BUTTON WORKS: ${pupper.hunger}`);
+            hungerScore.innerText = `HUNGER: ${pupper.hunger}`
             }
         
 });
@@ -118,7 +116,7 @@ characterIconAnimation.addEventListener('click', () => {
         clickSound.play();
         if(pupper.boredom >= 1){
             pupper.boredom -=1;
-            console.log(`PLAY BUTTON WORKS: ${pupper.boredom}`);
+            boredomScore.innerText  = `BOREDOM: ${pupper.boredom}`
             }
  });
  //Button for user to turn off the lights.
@@ -129,12 +127,12 @@ characterIconAnimation.addEventListener('click', () => {
             gameScreen.style.border = 'solid black 10px';
             gameScreen.style.opacity = '.8';
             pupper.sleepiness = Math.floor(pupper.sleepiness / 3);
+            sleepinessScore.innerText = `SLEEPINESS: ${pupper.sleepiness}`;
             setTimeout(function (){
             gameScreen.style.backgroundImage = '';
             gameScreen.style.border = '';
             gameScreen.style.opacity = '';
             }, 5000);
-            console.log(`LIGHT BUTTON WORKS: ${pupper.sleepiness}`)
         }
  });
 //Button so user can mute the music. 
@@ -148,7 +146,9 @@ quitButton.addEventListener('click', () => {
     quitSound.play();
     quit = true;
     let sound = document.querySelector('#theme');
-    sound.muted = !sound.muted;
+    if (sound.muted === false){
+        sound.muted = !sound.muted;
+        }
 });
 //button so user can play again
 playAgainButton.addEventListener('click', () => {
@@ -158,8 +158,8 @@ playAgainButton.addEventListener('click', () => {
     pupper.boredom = 0
     pupper.sleepiness = 0;
     pupper.hunger = 0;
-    console.log(pupper);
-    gameLoop();
+    setTimeout(gameLoop, 10000);
+    // gameLoop();
 });
 }
 
@@ -169,17 +169,14 @@ playAgainButton.addEventListener('click', () => {
     pupperChange();
             if(isAlive() === false){
                 characterIconAnimation.style.animationPlayState = "paused";
-
-                console.log("GAME OVER");
                 clearInterval(time);
                     if(highScore < pupper.age){
-                      highScore = pupper.age
-                      console.log(`FINAL: ${pupper.age}`);
-                      highScoreString.innerText = `HIGH SCORE: ${highScore} DOG YEARS`
+                      highScore = pupper.age / 7;
+                      highScoreString.innerText = `HIGH SCORE: ${highScore} HUMAN YEARS`
                      }   
             return;
             }
 
-    }, 3000);
+    }, 5000);
 }
 gameLoop();
