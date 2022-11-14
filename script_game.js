@@ -153,13 +153,10 @@ quitButton.addEventListener('click', () => {
 //button so user can play again
 playAgainButton.addEventListener('click', () => {
     let sound= document.querySelector('#theme');
-
     clickSound.play();
-
         if (sound.muted === true){
             sound.muted = !sound.muted
-        }
-        
+        }     
     quit = false;
     gameScreen.style.backgroundImage = 'url("../images/forest.jpg")';
     pupper.age = 0;
@@ -183,8 +180,8 @@ playAgainButton.addEventListener('click', () => {
                     highScore = pupper.age
                     highScoreString.innerText = `HIGH SCORE: ${highScore} DOG YEARS`
                   }
-                characterIconAnimation.style.animationPlayState = "paused";
-                     clearInterval(time);
+            characterIconAnimation.style.animationPlayState = "paused";
+            clearInterval(time);
             return;
             }
 

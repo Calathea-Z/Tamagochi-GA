@@ -15,3 +15,6 @@ User Stories:
 
 Technologies: 
 To make this project work I learned about CSS animations, how to que up audio clips through the DOM, how to style CSS text-shadow, and how to store information in localStorage so that the information can be shared throughout a website. 
+
+Challenges: 
+The biggest challenge that I feel I had while while working on this game was writing concise code. I feel that my code could be better organized and more succinct. My biggest goal moving forward is to learn how to write more precisely.
